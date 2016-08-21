@@ -8,7 +8,7 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import java.text.NumberFormat;
 
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tipTextView;
     private TextView totalTextView;
     private TextView percentTextView;
-    private final SeekBar.OnSeekBarChangeListener seekBarListener = new SeekBar.OnSeekBarChangeListener() {
+    private final OnSeekBarChangeListener seekBarListener = new OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
             percent = progress / 100;
