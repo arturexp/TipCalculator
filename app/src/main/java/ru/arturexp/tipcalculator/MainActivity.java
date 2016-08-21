@@ -1,14 +1,16 @@
 package ru.arturexp.tipcalculator;
 
 
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
+
 import java.text.NumberFormat;
 
 
@@ -23,10 +25,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView tipTextView;
     private TextView totalTextView;
     private TextView percentTextView;
+
     private final OnSeekBarChangeListener seekBarListener = new OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-            percent = progress / 100;
+            percent = progress / 100.0;
             calculate();
         }
 
@@ -50,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             try {
-                billAmount = Double.parseDouble(charSequence.toString()) / 100;
+                billAmount = Double.parseDouble(charSequence.toString()) / 100.0;
                 amountTextView.setText(currencyFormat.format(billAmount));
             } catch (NumberFormatException e) {
                 amountTextView.setText("");
